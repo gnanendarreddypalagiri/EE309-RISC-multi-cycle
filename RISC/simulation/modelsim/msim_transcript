@@ -1,0 +1,183 @@
+# Reading pref.tcl
+# do RISC_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/sign_extender_6.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:54:09 on Apr 30,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/sign_extender_6.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity sign_extender_6
+# -- Compiling architecture SE6 of sign_extender_6
+# End time: 10:54:09 on Apr 30,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/register_data.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:54:09 on Apr 30,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/register_data.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity register_data
+# -- Compiling architecture Reg_data of register_data
+# End time: 10:54:09 on Apr 30,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/PriorityEncoder.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:54:09 on Apr 30,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/PriorityEncoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity PriorityEncoder
+# -- Compiling architecture behave of PriorityEncoder
+# End time: 10:54:09 on Apr 30,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/inst_register_data.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:54:09 on Apr 30,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/inst_register_data.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity inst_register_data
+# -- Compiling architecture IR_inst of inst_register_data
+# End time: 10:54:09 on Apr 30,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_extension.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:54:09 on Apr 30,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_extension.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity data_extension
+# -- Compiling architecture DE of data_extension
+# End time: 10:54:09 on Apr 30,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/continue_decoder.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:54:09 on Apr 30,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/continue_decoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity continue_decoder
+# -- Compiling architecture CD of continue_decoder
+# End time: 10:54:09 on Apr 30,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/all_components.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:54:09 on Apr 30,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/all_components.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package components_init
+# End time: 10:54:10 on Apr 30,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:54:10 on Apr 30,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity controlpath
+# -- Compiling architecture struct of controlpath
+# End time: 10:54:10 on Apr 30,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/Shifter.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:54:10 on Apr 30,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/Shifter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity shifter_1
+# -- Compiling architecture S1 of shifter_1
+# End time: 10:54:10 on Apr 30,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/Toplevel.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:54:10 on Apr 30,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/Toplevel.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity TopLevel
+# -- Compiling architecture struct of TopLevel
+# End time: 10:54:10 on Apr 30,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:54:10 on Apr 30,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package components_init
+# -- Compiling entity ALU
+# -- Compiling architecture alu_arch of ALU
+# End time: 10:54:10 on Apr 30,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/sign_extender_9.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:54:10 on Apr 30,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/sign_extender_9.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package components_init
+# -- Compiling entity sign_extender_9
+# -- Compiling architecture SE9 of sign_extender_9
+# End time: 10:54:10 on Apr 30,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:54:10 on Apr 30,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package components_init
+# -- Compiling entity reg_file
+# -- Compiling architecture rf of reg_file
+# End time: 10:54:11 on Apr 30,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:54:11 on Apr 30,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package components_init
+# -- Compiling entity instruction_register
+# -- Compiling architecture IR of instruction_register
+# End time: 10:54:11 on Apr 30,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:54:11 on Apr 30,2022
+# vcom -reportprogress 300 -93 -work work C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package components_init
+# -- Compiling entity data_path
+# -- Compiling architecture compute of data_path
+# End time: 10:54:11 on Apr 30,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
