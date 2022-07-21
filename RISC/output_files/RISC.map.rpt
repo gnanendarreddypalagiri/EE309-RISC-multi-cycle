@@ -1,0 +1,741 @@
+Analysis & Synthesis report for RISC
+Sat Apr 30 10:53:34 2022
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |TopLevel|controlpath:FSM_control|state
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Port Connectivity Checks: "controlpath:FSM_control"
+ 13. Port Connectivity Checks: "data_path:Datapath|PriorityEncoder:PE"
+ 14. Port Connectivity Checks: "data_path:Datapath|instruction_register:ID"
+ 15. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                              ;
++-----------------------------+---------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Sat Apr 30 10:53:34 2022       ;
+; Quartus Prime Version       ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name               ; RISC                                        ;
+; Top-level Entity Name       ; TopLevel                                    ;
+; Family                      ; MAX V                                       ;
+; Total logic elements        ; 0                                           ;
+; Total pins                  ; 2                                           ;
+; Total virtual pins          ; 0                                           ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
++-----------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                            ; Toplevel           ; RISC               ;
+; Family name                                                      ; MAX V              ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                            ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                     ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
+; alu.vhd                          ; yes             ; User VHDL File  ; C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd                  ;         ;
+; sign_extender_9.vhd              ; yes             ; User VHDL File  ; C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/sign_extender_9.vhd      ;         ;
+; sign_extender_6.vhd              ; yes             ; User VHDL File  ; C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/sign_extender_6.vhd      ;         ;
+; register_data.vhd                ; yes             ; User VHDL File  ; C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/register_data.vhd        ;         ;
+; reg_file.vhd                     ; yes             ; User VHDL File  ; C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd             ;         ;
+; PriorityEncoder.vhd              ; yes             ; User VHDL File  ; C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/PriorityEncoder.vhd      ;         ;
+; instruction_register.vhd         ; yes             ; User VHDL File  ; C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd ;         ;
+; inst_register_data.vhd           ; yes             ; User VHDL File  ; C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/inst_register_data.vhd   ;         ;
+; data_path.vhd                    ; yes             ; User VHDL File  ; C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd            ;         ;
+; data_extension.vhd               ; yes             ; User VHDL File  ; C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_extension.vhd       ;         ;
+; continue_decoder.vhd             ; yes             ; User VHDL File  ; C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/continue_decoder.vhd     ;         ;
+; all_components.vhd               ; yes             ; User VHDL File  ; C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/all_components.vhd       ;         ;
+; RISC.vhd                         ; yes             ; User VHDL File  ; C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd                 ;         ;
+; Shifter.vhd                      ; yes             ; User VHDL File  ; C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/Shifter.vhd              ;         ;
+; Toplevel.vhdl                    ; yes             ; User VHDL File  ; C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/Toplevel.vhdl            ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Total logic elements                        ; 0     ;
+;     -- Combinational with no register       ; 0     ;
+;     -- Register only                        ; 0     ;
+;     -- Combinational with a register        ; 0     ;
+;                                             ;       ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- 2 input functions                    ; 0     ;
+;     -- 1 input functions                    ; 0     ;
+;     -- 0 input functions                    ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;     -- qfbk mode                            ; 0     ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 0     ;
+;     -- asynchronous clear/load mode         ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+; I/O pins                                    ; 2     ;
++---------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+-------------+--------------+
+; |TopLevel                  ; 0 (0)       ; 0            ; 0          ; 2    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |TopLevel           ; TopLevel    ; work         ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |TopLevel|controlpath:FSM_control|state                                                                                                                                                                                                                            ;
++----------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+----------------+
+; Name           ; state.S21 ; state.S20 ; state.S19 ; state.S18 ; state.S17 ; state.S16 ; state.S15 ; state.S14 ; state.S13 ; state.S12 ; state.S11 ; state.S10 ; state.S9 ; state.S8 ; state.S7 ; state.S6 ; state.S5 ; state.S3 ; state.S2 ; state.S1 ; state.S0 ; state.S0_reset ;
++----------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+----------------+
+; state.S0_reset ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0              ;
+; state.S0       ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 1              ;
+; state.S1       ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 1              ;
+; state.S2       ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 1              ;
+; state.S3       ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 1              ;
+; state.S5       ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 1              ;
+; state.S6       ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1              ;
+; state.S7       ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1              ;
+; state.S8       ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1              ;
+; state.S9       ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1              ;
+; state.S10      ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1              ;
+; state.S11      ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1              ;
+; state.S12      ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1              ;
+; state.S13      ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1              ;
+; state.S14      ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1              ;
+; state.S15      ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1              ;
+; state.S16      ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1              ;
+; state.S17      ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1              ;
+; state.S18      ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1              ;
+; state.S19      ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1              ;
+; state.S20      ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1              ;
+; state.S21      ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1              ;
++----------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                ;
++---------------------------------------------------------------------+---------------------------------------------+
+; Register name                                                       ; Reason for Removal                          ;
++---------------------------------------------------------------------+---------------------------------------------+
+; data_path:Datapath|inst_register_data:Inst_register|inst_out[0..15] ; Stuck at GND due to stuck port data_in      ;
+; data_path:Datapath|reg_file:RF|reg_6[0..15]                         ; Stuck at GND due to stuck port clock_enable ;
+; data_path:Datapath|reg_file:RF|reg_5[0..15]                         ; Stuck at GND due to stuck port clock_enable ;
+; data_path:Datapath|reg_file:RF|reg_4[0..15]                         ; Stuck at GND due to stuck port clock_enable ;
+; data_path:Datapath|reg_file:RF|reg_3[0..15]                         ; Stuck at GND due to stuck port clock_enable ;
+; data_path:Datapath|reg_file:RF|reg_2[0..15]                         ; Stuck at GND due to stuck port clock_enable ;
+; data_path:Datapath|reg_file:RF|reg_1[0..15]                         ; Stuck at GND due to stuck port clock_enable ;
+; data_path:Datapath|reg_file:RF|reg_7[0..15]                         ; Lost fanout                                 ;
+; data_path:Datapath|register_data:T3|data_out[0..15]                 ; Lost fanout                                 ;
+; data_path:Datapath|register_data:T2|data_out[0..15]                 ; Lost fanout                                 ;
+; data_path:Datapath|register_data:T1|data_out[0..15]                 ; Lost fanout                                 ;
+; data_path:Datapath|reg_file:RF|reg_0[0..15]                         ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S1                                    ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S2                                    ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S3                                    ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S5                                    ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S6                                    ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S7                                    ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S8                                    ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S9                                    ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S10                                   ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S11                                   ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S16                                   ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S20                                   ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S21                                   ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S13                                   ; Stuck at GND due to stuck port data_in      ;
+; controlpath:FSM_control|state.S12                                   ; Stuck at GND due to stuck port data_in      ;
+; controlpath:FSM_control|state.S0_reset                              ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S0                                    ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S14                                   ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S15                                   ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S17                                   ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S18                                   ; Lost fanout                                 ;
+; controlpath:FSM_control|state.S19                                   ; Lost fanout                                 ;
+; Total Number of Removed Registers = 214                             ;                                             ;
++---------------------------------------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                       ;
++-----------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; Register name                                                   ; Reason for Removal        ; Registers Removed due to This Register                                              ;
++-----------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; data_path:Datapath|inst_register_data:Inst_register|inst_out[0] ; Stuck at GND              ; data_path:Datapath|reg_file:RF|reg_6[0], data_path:Datapath|reg_file:RF|reg_6[1],   ;
+;                                                                 ; due to stuck port data_in ; data_path:Datapath|reg_file:RF|reg_6[2], data_path:Datapath|reg_file:RF|reg_6[3],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_6[4], data_path:Datapath|reg_file:RF|reg_6[5],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_6[6], data_path:Datapath|reg_file:RF|reg_6[7],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_6[8], data_path:Datapath|reg_file:RF|reg_6[9],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_6[10], data_path:Datapath|reg_file:RF|reg_6[11], ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_6[12], data_path:Datapath|reg_file:RF|reg_6[13], ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_6[14], data_path:Datapath|reg_file:RF|reg_6[15], ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_5[0], data_path:Datapath|reg_file:RF|reg_5[1],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_5[2], data_path:Datapath|reg_file:RF|reg_5[3],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_5[4], data_path:Datapath|reg_file:RF|reg_5[5],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_5[6], data_path:Datapath|reg_file:RF|reg_5[7],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_5[8], data_path:Datapath|reg_file:RF|reg_5[9],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_5[10], data_path:Datapath|reg_file:RF|reg_5[11], ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_5[12], data_path:Datapath|reg_file:RF|reg_5[13], ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_5[14], data_path:Datapath|reg_file:RF|reg_5[15], ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_4[0], data_path:Datapath|reg_file:RF|reg_4[1],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_4[2], data_path:Datapath|reg_file:RF|reg_4[3],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_4[4], data_path:Datapath|reg_file:RF|reg_4[5],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_4[6], data_path:Datapath|reg_file:RF|reg_4[7],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_4[8], data_path:Datapath|reg_file:RF|reg_4[9],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_4[10], data_path:Datapath|reg_file:RF|reg_4[11], ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_4[12], data_path:Datapath|reg_file:RF|reg_4[13], ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_4[14], data_path:Datapath|reg_file:RF|reg_4[15], ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_3[1], data_path:Datapath|reg_file:RF|reg_3[2],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_3[3], data_path:Datapath|reg_file:RF|reg_3[4],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_3[5], data_path:Datapath|reg_file:RF|reg_3[6],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_3[7], data_path:Datapath|reg_file:RF|reg_3[8],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_3[9], data_path:Datapath|reg_file:RF|reg_3[10],  ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_3[11], data_path:Datapath|reg_file:RF|reg_3[12], ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_3[13], data_path:Datapath|reg_file:RF|reg_3[14], ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_3[15], data_path:Datapath|reg_file:RF|reg_2[1],  ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_2[2], data_path:Datapath|reg_file:RF|reg_2[3],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_2[4], data_path:Datapath|reg_file:RF|reg_2[5],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_2[6], data_path:Datapath|reg_file:RF|reg_2[7],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_2[8], data_path:Datapath|reg_file:RF|reg_2[9],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_2[10], data_path:Datapath|reg_file:RF|reg_2[11], ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_2[12], data_path:Datapath|reg_file:RF|reg_2[13], ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_2[14], data_path:Datapath|reg_file:RF|reg_2[15], ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_1[1], data_path:Datapath|reg_file:RF|reg_1[2],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_1[3], data_path:Datapath|reg_file:RF|reg_1[4],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_1[5], data_path:Datapath|reg_file:RF|reg_1[6],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_1[7], data_path:Datapath|reg_file:RF|reg_1[8],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_1[9], data_path:Datapath|reg_file:RF|reg_1[10],  ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_1[11], data_path:Datapath|reg_file:RF|reg_1[12], ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_1[13], data_path:Datapath|reg_file:RF|reg_1[14], ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_1[15],                                           ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T3|data_out[0],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T3|data_out[1],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T3|data_out[2],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T3|data_out[3],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T3|data_out[4],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T3|data_out[5],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T3|data_out[6],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T3|data_out[7],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T2|data_out[0],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T2|data_out[7],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T1|data_out[0],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T1|data_out[1],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T1|data_out[2],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T1|data_out[3],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T1|data_out[4],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T1|data_out[5],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T1|data_out[6],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T1|data_out[7],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T1|data_out[8],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T1|data_out[9],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T1|data_out[10],                                   ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T1|data_out[11],                                   ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T1|data_out[12],                                   ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T1|data_out[13],                                   ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T1|data_out[14],                                   ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T1|data_out[15],                                   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_0[0]                                             ;
+; data_path:Datapath|inst_register_data:Inst_register|inst_out[1] ; Stuck at GND              ; data_path:Datapath|reg_file:RF|reg_3[0], data_path:Datapath|reg_file:RF|reg_7[0],   ;
+;                                                                 ; due to stuck port data_in ; data_path:Datapath|reg_file:RF|reg_7[1], data_path:Datapath|reg_file:RF|reg_7[2],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_7[3], data_path:Datapath|reg_file:RF|reg_7[4],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_7[5], data_path:Datapath|reg_file:RF|reg_7[6],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_7[7], data_path:Datapath|reg_file:RF|reg_7[9],   ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_7[10], data_path:Datapath|reg_file:RF|reg_7[11], ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_7[12], data_path:Datapath|reg_file:RF|reg_7[13], ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_7[14], data_path:Datapath|reg_file:RF|reg_7[15], ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T3|data_out[8],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T2|data_out[1],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T2|data_out[8],                                    ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_0[1]                                             ;
+; data_path:Datapath|inst_register_data:Inst_register|inst_out[2] ; Stuck at GND              ; data_path:Datapath|reg_file:RF|reg_2[0], data_path:Datapath|reg_file:RF|reg_1[0],   ;
+;                                                                 ; due to stuck port data_in ; data_path:Datapath|reg_file:RF|reg_7[8],                                            ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T3|data_out[9],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T2|data_out[2],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T2|data_out[9],                                    ;
+;                                                                 ;                           ; data_path:Datapath|reg_file:RF|reg_0[2]                                             ;
+; data_path:Datapath|inst_register_data:Inst_register|inst_out[5] ; Stuck at GND              ; data_path:Datapath|register_data:T3|data_out[12],                                   ;
+;                                                                 ; due to stuck port data_in ; data_path:Datapath|register_data:T2|data_out[5],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T2|data_out[6],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T2|data_out[12],                                   ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T2|data_out[15]                                    ;
+; data_path:Datapath|inst_register_data:Inst_register|inst_out[3] ; Stuck at GND              ; data_path:Datapath|register_data:T3|data_out[10],                                   ;
+;                                                                 ; due to stuck port data_in ; data_path:Datapath|register_data:T2|data_out[3],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T2|data_out[10]                                    ;
+; data_path:Datapath|inst_register_data:Inst_register|inst_out[4] ; Stuck at GND              ; data_path:Datapath|register_data:T3|data_out[11],                                   ;
+;                                                                 ; due to stuck port data_in ; data_path:Datapath|register_data:T2|data_out[4],                                    ;
+;                                                                 ;                           ; data_path:Datapath|register_data:T2|data_out[11]                                    ;
+; data_path:Datapath|inst_register_data:Inst_register|inst_out[6] ; Stuck at GND              ; data_path:Datapath|register_data:T3|data_out[13],                                   ;
+;                                                                 ; due to stuck port data_in ; data_path:Datapath|register_data:T2|data_out[13]                                    ;
+; data_path:Datapath|inst_register_data:Inst_register|inst_out[7] ; Stuck at GND              ; data_path:Datapath|register_data:T3|data_out[14],                                   ;
+;                                                                 ; due to stuck port data_in ; data_path:Datapath|register_data:T2|data_out[14]                                    ;
+; data_path:Datapath|inst_register_data:Inst_register|inst_out[8] ; Stuck at GND              ; data_path:Datapath|register_data:T3|data_out[15]                                    ;
+;                                                                 ; due to stuck port data_in ;                                                                                     ;
+; controlpath:FSM_control|state.S13                               ; Stuck at GND              ; controlpath:FSM_control|state.S12                                                   ;
+;                                                                 ; due to stuck port data_in ;                                                                                     ;
++-----------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "controlpath:FSM_control"                                                                                                                         ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                                                                                                      ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; zero_flag ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:Datapath|PriorityEncoder:PE"                                              ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; pe0  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:Datapath|instruction_register:ID"                                                      ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                             ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; instruction_carry ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; instruction_zero  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Sat Apr 30 10:53:21 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISC -c RISC
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
+    Info (12022): Found design unit 1: ALU-alu_arch File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 25
+    Info (12023): Found entity 1: ALU File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file sign_extender_9.vhd
+    Info (12022): Found design unit 1: sign_extender_9-SE9 File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/sign_extender_9.vhd Line: 16
+    Info (12023): Found entity 1: sign_extender_9 File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/sign_extender_9.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file sign_extender_6.vhd
+    Info (12022): Found design unit 1: sign_extender_6-SE6 File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/sign_extender_6.vhd Line: 16
+    Info (12023): Found entity 1: sign_extender_6 File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/sign_extender_6.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file register_data.vhd
+    Info (12022): Found design unit 1: register_data-Reg_data File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/register_data.vhd Line: 17
+    Info (12023): Found entity 1: register_data File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/register_data.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file reg_file.vhd
+    Info (12022): Found design unit 1: reg_file-rf File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 36
+    Info (12023): Found entity 1: reg_file File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file priorityencoder.vhd
+    Info (12022): Found design unit 1: PriorityEncoder-behave File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/PriorityEncoder.vhd Line: 11
+    Info (12023): Found entity 1: PriorityEncoder File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/PriorityEncoder.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file pemodifyenable.vhd
+    Info (12022): Found design unit 1: PriorityModify-description File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/PEModifyEnable.vhd Line: 15
+    Info (12023): Found entity 1: PriorityModify File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/PEModifyEnable.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file peenable.vhd
+    Info (12022): Found design unit 1: PEEnable-desc File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/PEEnable.vhd Line: 11
+    Info (12023): Found entity 1: PEEnable File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/PEEnable.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file memory.vhd
+    Info (12022): Found design unit 1: memory-memory_comp File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/memory.vhd Line: 34
+    Info (12023): Found entity 1: memory File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/memory.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file instruction_register.vhd
+    Info (12022): Found design unit 1: instruction_register-IR File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 34
+    Info (12023): Found entity 1: instruction_register File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file inst_register_data.vhd
+    Info (12022): Found design unit 1: inst_register_data-IR_inst File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/inst_register_data.vhd Line: 16
+    Info (12023): Found entity 1: inst_register_data File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/inst_register_data.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file data_path.vhd
+    Info (12022): Found design unit 1: data_path-compute File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 91
+    Info (12023): Found entity 1: data_path File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file data_extension.vhd
+    Info (12022): Found design unit 1: data_extension-DE File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_extension.vhd Line: 14
+    Info (12023): Found entity 1: data_extension File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_extension.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file continue_decoder.vhd
+    Info (12022): Found design unit 1: continue_decoder-CD File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/continue_decoder.vhd Line: 14
+    Info (12023): Found entity 1: continue_decoder File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/continue_decoder.vhd Line: 5
+Info (12021): Found 1 design units, including 0 entities, in source file all_components.vhd
+    Info (12022): Found design unit 1: components_init File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/all_components.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file risc.vhd
+    Info (12022): Found design unit 1: controlpath-struct File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 83
+    Info (12023): Found entity 1: controlpath File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file shifter.vhd
+    Info (12022): Found design unit 1: shifter_1-S1 File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/Shifter.vhd Line: 16
+    Info (12023): Found entity 1: shifter_1 File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/Shifter.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file toplevel.vhdl
+    Info (12022): Found design unit 1: TopLevel-struct File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/Toplevel.vhdl Line: 9
+    Info (12023): Found entity 1: TopLevel File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/Toplevel.vhdl Line: 5
+Info (12127): Elaborating entity "Toplevel" for the top level hierarchy
+Info (12128): Elaborating entity "data_path" for hierarchy "data_path:Datapath" File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/Toplevel.vhdl Line: 182
+Warning (10541): VHDL Signal Declaration warning at data_path.vhd(57): used implicit default value for signal "loop_out" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 57
+Warning (10541): VHDL Signal Declaration warning at data_path.vhd(60): used implicit default value for signal "zero_out" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 60
+Warning (10541): VHDL Signal Declaration warning at data_path.vhd(63): used implicit default value for signal "carry_out" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 63
+Warning (10036): Verilog HDL or VHDL warning at data_path.vhd(104): object "carry_reg" assigned a value but never read File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 104
+Warning (10036): Verilog HDL or VHDL warning at data_path.vhd(105): object "zero_reg" assigned a value but never read File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 105
+Warning (10036): Verilog HDL or VHDL warning at data_path.vhd(127): object "PC_in" assigned a value but never read File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 127
+Warning (10541): VHDL Signal Declaration warning at data_path.vhd(128): used implicit default value for signal "PC_out" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 128
+Warning (10036): Verilog HDL or VHDL warning at data_path.vhd(131): object "mem_addr_in" assigned a value but never read File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 131
+Warning (10036): Verilog HDL or VHDL warning at data_path.vhd(132): object "mem_data_in" assigned a value but never read File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 132
+Warning (10541): VHDL Signal Declaration warning at data_path.vhd(133): used implicit default value for signal "mem_data_out" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 133
+Warning (10540): VHDL Signal Declaration warning at data_path.vhd(142): used explicit default value for signal "const_1" because signal was never assigned a value File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 142
+Warning (10540): VHDL Signal Declaration warning at data_path.vhd(143): used explicit default value for signal "const_minus_1" because signal was never assigned a value File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 143
+Warning (10036): Verilog HDL or VHDL warning at data_path.vhd(152): object "PE0_sig" assigned a value but never read File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 152
+Info (10041): Inferred latch for "data3_write[0]" at data_path.vhd(207) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 207
+Info (10041): Inferred latch for "data3_write[1]" at data_path.vhd(207) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 207
+Info (10041): Inferred latch for "data3_write[2]" at data_path.vhd(207) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 207
+Info (10041): Inferred latch for "data3_write[3]" at data_path.vhd(207) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 207
+Info (10041): Inferred latch for "data3_write[4]" at data_path.vhd(207) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 207
+Info (10041): Inferred latch for "data3_write[5]" at data_path.vhd(207) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 207
+Info (10041): Inferred latch for "data3_write[6]" at data_path.vhd(207) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 207
+Info (10041): Inferred latch for "data3_write[7]" at data_path.vhd(207) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 207
+Info (10041): Inferred latch for "data3_write[8]" at data_path.vhd(207) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 207
+Info (10041): Inferred latch for "data3_write[9]" at data_path.vhd(207) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 207
+Info (10041): Inferred latch for "data3_write[10]" at data_path.vhd(207) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 207
+Info (10041): Inferred latch for "data3_write[11]" at data_path.vhd(207) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 207
+Info (10041): Inferred latch for "data3_write[12]" at data_path.vhd(207) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 207
+Info (10041): Inferred latch for "data3_write[13]" at data_path.vhd(207) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 207
+Info (10041): Inferred latch for "data3_write[14]" at data_path.vhd(207) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 207
+Info (10041): Inferred latch for "data3_write[15]" at data_path.vhd(207) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 207
+Info (10041): Inferred latch for "adr3_write[0]" at data_path.vhd(202) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 202
+Info (10041): Inferred latch for "adr3_write[1]" at data_path.vhd(202) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 202
+Info (10041): Inferred latch for "adr3_write[2]" at data_path.vhd(202) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 202
+Info (10041): Inferred latch for "adr1_read[0]" at data_path.vhd(197) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 197
+Info (10041): Inferred latch for "adr1_read[1]" at data_path.vhd(197) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 197
+Info (10041): Inferred latch for "adr1_read[2]" at data_path.vhd(197) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 197
+Info (10041): Inferred latch for "T2_data_in[0]" at data_path.vhd(187) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 187
+Info (10041): Inferred latch for "T2_data_in[1]" at data_path.vhd(187) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 187
+Info (10041): Inferred latch for "T2_data_in[2]" at data_path.vhd(187) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 187
+Info (10041): Inferred latch for "T2_data_in[3]" at data_path.vhd(187) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 187
+Info (10041): Inferred latch for "T2_data_in[4]" at data_path.vhd(187) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 187
+Info (10041): Inferred latch for "T2_data_in[5]" at data_path.vhd(187) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 187
+Info (10041): Inferred latch for "T2_data_in[6]" at data_path.vhd(187) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 187
+Info (10041): Inferred latch for "T2_data_in[7]" at data_path.vhd(187) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 187
+Info (10041): Inferred latch for "T2_data_in[8]" at data_path.vhd(187) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 187
+Info (10041): Inferred latch for "T2_data_in[9]" at data_path.vhd(187) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 187
+Info (10041): Inferred latch for "T2_data_in[10]" at data_path.vhd(187) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 187
+Info (10041): Inferred latch for "T2_data_in[11]" at data_path.vhd(187) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 187
+Info (10041): Inferred latch for "T2_data_in[12]" at data_path.vhd(187) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 187
+Info (10041): Inferred latch for "T2_data_in[13]" at data_path.vhd(187) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 187
+Info (10041): Inferred latch for "T2_data_in[14]" at data_path.vhd(187) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 187
+Info (10041): Inferred latch for "T2_data_in[15]" at data_path.vhd(187) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 187
+Info (10041): Inferred latch for "T1_data_in[0]" at data_path.vhd(182) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 182
+Info (10041): Inferred latch for "T1_data_in[1]" at data_path.vhd(182) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 182
+Info (10041): Inferred latch for "T1_data_in[2]" at data_path.vhd(182) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 182
+Info (10041): Inferred latch for "T1_data_in[3]" at data_path.vhd(182) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 182
+Info (10041): Inferred latch for "T1_data_in[4]" at data_path.vhd(182) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 182
+Info (10041): Inferred latch for "T1_data_in[5]" at data_path.vhd(182) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 182
+Info (10041): Inferred latch for "T1_data_in[6]" at data_path.vhd(182) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 182
+Info (10041): Inferred latch for "T1_data_in[7]" at data_path.vhd(182) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 182
+Info (10041): Inferred latch for "T1_data_in[8]" at data_path.vhd(182) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 182
+Info (10041): Inferred latch for "T1_data_in[9]" at data_path.vhd(182) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 182
+Info (10041): Inferred latch for "T1_data_in[10]" at data_path.vhd(182) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 182
+Info (10041): Inferred latch for "T1_data_in[11]" at data_path.vhd(182) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 182
+Info (10041): Inferred latch for "T1_data_in[12]" at data_path.vhd(182) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 182
+Info (10041): Inferred latch for "T1_data_in[13]" at data_path.vhd(182) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 182
+Info (10041): Inferred latch for "T1_data_in[14]" at data_path.vhd(182) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 182
+Info (10041): Inferred latch for "T1_data_in[15]" at data_path.vhd(182) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 182
+Info (12128): Elaborating entity "continue_decoder" for hierarchy "data_path:Datapath|continue_decoder:CD" File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 229
+Warning (10631): VHDL Process Statement warning at continue_decoder.vhd(17): inferring latch(es) for signal or variable "continue_var", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/continue_decoder.vhd Line: 17
+Info (10041): Inferred latch for "continue_var" at continue_decoder.vhd(26) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/continue_decoder.vhd Line: 26
+Info (12128): Elaborating entity "data_extension" for hierarchy "data_path:Datapath|data_extension:DE" File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 237
+Info (12128): Elaborating entity "sign_extender_9" for hierarchy "data_path:Datapath|sign_extender_9:SE9" File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 243
+Info (12128): Elaborating entity "sign_extender_6" for hierarchy "data_path:Datapath|sign_extender_6:SE6" File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 249
+Info (12128): Elaborating entity "shifter_1" for hierarchy "data_path:Datapath|shifter_1:S1" File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 255
+Info (12128): Elaborating entity "inst_register_data" for hierarchy "data_path:Datapath|inst_register_data:Inst_register" File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 262
+Info (12128): Elaborating entity "instruction_register" for hierarchy "data_path:Datapath|instruction_register:ID" File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 269
+Warning (10631): VHDL Process Statement warning at instruction_register.vhd(41): inferring latch(es) for signal or variable "carry_variable", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 41
+Warning (10631): VHDL Process Statement warning at instruction_register.vhd(41): inferring latch(es) for signal or variable "zero_variable", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 41
+Warning (10631): VHDL Process Statement warning at instruction_register.vhd(41): inferring latch(es) for signal or variable "inst_op_variable", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 41
+Warning (10631): VHDL Process Statement warning at instruction_register.vhd(61): inferring latch(es) for signal or variable "inst_type_variable", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 61
+Info (10041): Inferred latch for "inst_type_variable[0]" at instruction_register.vhd(64) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 64
+Info (10041): Inferred latch for "inst_type_variable[1]" at instruction_register.vhd(64) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 64
+Info (10041): Inferred latch for "inst_type_variable[2]" at instruction_register.vhd(64) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 64
+Info (10041): Inferred latch for "inst_type_variable[3]" at instruction_register.vhd(64) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 64
+Info (10041): Inferred latch for "inst_op_variable[0]" at instruction_register.vhd(51) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 51
+Info (10041): Inferred latch for "inst_op_variable[1]" at instruction_register.vhd(51) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 51
+Info (10041): Inferred latch for "zero_variable" at instruction_register.vhd(51) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 51
+Info (10041): Inferred latch for "carry_variable" at instruction_register.vhd(51) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 51
+Info (12128): Elaborating entity "PriorityEncoder" for hierarchy "data_path:Datapath|PriorityEncoder:PE" File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 276
+Info (12128): Elaborating entity "reg_file" for hierarchy "data_path:Datapath|reg_file:RF" File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 283
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(90): signal "reg_0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 90
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(92): signal "reg_1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 92
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(94): signal "reg_2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 94
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(96): signal "reg_3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 96
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(98): signal "reg_4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 98
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(100): signal "reg_5" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 100
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(102): signal "reg_6" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 102
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(104): signal "reg_7" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 104
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(108): signal "reg_0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 108
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(110): signal "reg_1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 110
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(112): signal "reg_2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 112
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(114): signal "reg_3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 114
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(116): signal "reg_4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 116
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(118): signal "reg_5" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 118
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(120): signal "reg_6" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 120
+Warning (10492): VHDL Process Statement warning at reg_file.vhd(122): signal "reg_7" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 122
+Warning (10631): VHDL Process Statement warning at reg_file.vhd(83): inferring latch(es) for signal or variable "data_out_1_var", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 83
+Warning (10631): VHDL Process Statement warning at reg_file.vhd(83): inferring latch(es) for signal or variable "data_out_2_var", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 83
+Info (10041): Inferred latch for "data_out_2_var[0]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_2_var[1]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_2_var[2]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_2_var[3]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_2_var[4]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_2_var[5]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_2_var[6]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_2_var[7]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_2_var[8]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_2_var[9]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_2_var[10]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_2_var[11]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_2_var[12]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_2_var[13]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_2_var[14]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_2_var[15]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_1_var[0]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_1_var[1]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_1_var[2]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_1_var[3]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_1_var[4]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_1_var[5]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_1_var[6]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_1_var[7]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_1_var[8]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_1_var[9]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_1_var[10]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_1_var[11]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_1_var[12]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_1_var[13]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_1_var[14]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (10041): Inferred latch for "data_out_1_var[15]" at reg_file.vhd(88) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/reg_file.vhd Line: 88
+Info (12128): Elaborating entity "ALU" for hierarchy "data_path:Datapath|ALU:ALU1" File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 299
+Warning (10631): VHDL Process Statement warning at alu.vhd(36): inferring latch(es) for signal or variable "alu_out_sig", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 36
+Info (10041): Inferred latch for "alu_out_sig[0]" at alu.vhd(36) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 36
+Info (10041): Inferred latch for "alu_out_sig[1]" at alu.vhd(36) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 36
+Info (10041): Inferred latch for "alu_out_sig[2]" at alu.vhd(36) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 36
+Info (10041): Inferred latch for "alu_out_sig[3]" at alu.vhd(36) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 36
+Info (10041): Inferred latch for "alu_out_sig[4]" at alu.vhd(36) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 36
+Info (10041): Inferred latch for "alu_out_sig[5]" at alu.vhd(36) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 36
+Info (10041): Inferred latch for "alu_out_sig[6]" at alu.vhd(36) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 36
+Info (10041): Inferred latch for "alu_out_sig[7]" at alu.vhd(36) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 36
+Info (10041): Inferred latch for "alu_out_sig[8]" at alu.vhd(36) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 36
+Info (10041): Inferred latch for "alu_out_sig[9]" at alu.vhd(36) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 36
+Info (10041): Inferred latch for "alu_out_sig[10]" at alu.vhd(36) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 36
+Info (10041): Inferred latch for "alu_out_sig[11]" at alu.vhd(36) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 36
+Info (10041): Inferred latch for "alu_out_sig[12]" at alu.vhd(36) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 36
+Info (10041): Inferred latch for "alu_out_sig[13]" at alu.vhd(36) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 36
+Info (10041): Inferred latch for "alu_out_sig[14]" at alu.vhd(36) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 36
+Info (10041): Inferred latch for "alu_out_sig[15]" at alu.vhd(36) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/alu.vhd Line: 36
+Info (12128): Elaborating entity "register_data" for hierarchy "data_path:Datapath|register_data:T1" File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/data_path.vhd Line: 309
+Info (12128): Elaborating entity "controlpath" for hierarchy "controlpath:FSM_control" File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/Toplevel.vhdl Line: 189
+Warning (10541): VHDL Signal Declaration warning at RISC.vhd(37): used implicit default value for signal "rf_a2_select" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 37
+Warning (10036): Verilog HDL or VHDL warning at RISC.vhd(307): object "nrf_a2" assigned a value but never read File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 307
+Warning (10631): VHDL Process Statement warning at RISC.vhd(293): inferring latch(es) for signal or variable "ir_enable", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Warning (10631): VHDL Process Statement warning at RISC.vhd(293): inferring latch(es) for signal or variable "pc_select", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Warning (10631): VHDL Process Statement warning at RISC.vhd(293): inferring latch(es) for signal or variable "alu_op", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Warning (10631): VHDL Process Statement warning at RISC.vhd(293): inferring latch(es) for signal or variable "alu_a_select", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Warning (10631): VHDL Process Statement warning at RISC.vhd(293): inferring latch(es) for signal or variable "alu_b_select", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Warning (10631): VHDL Process Statement warning at RISC.vhd(293): inferring latch(es) for signal or variable "mem_add_select", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Warning (10631): VHDL Process Statement warning at RISC.vhd(293): inferring latch(es) for signal or variable "mem_data", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Warning (10631): VHDL Process Statement warning at RISC.vhd(293): inferring latch(es) for signal or variable "mem_write", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Warning (10631): VHDL Process Statement warning at RISC.vhd(293): inferring latch(es) for signal or variable "mem_read", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Warning (10631): VHDL Process Statement warning at RISC.vhd(293): inferring latch(es) for signal or variable "rf_write", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Warning (10631): VHDL Process Statement warning at RISC.vhd(293): inferring latch(es) for signal or variable "rf_read", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Warning (10631): VHDL Process Statement warning at RISC.vhd(293): inferring latch(es) for signal or variable "rf_a1_select", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Warning (10631): VHDL Process Statement warning at RISC.vhd(293): inferring latch(es) for signal or variable "rf_a3_select", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Warning (10631): VHDL Process Statement warning at RISC.vhd(293): inferring latch(es) for signal or variable "rf_d3_select", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Warning (10631): VHDL Process Statement warning at RISC.vhd(293): inferring latch(es) for signal or variable "t1", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Warning (10631): VHDL Process Statement warning at RISC.vhd(293): inferring latch(es) for signal or variable "t2", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Warning (10631): VHDL Process Statement warning at RISC.vhd(293): inferring latch(es) for signal or variable "carry_en", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Warning (10631): VHDL Process Statement warning at RISC.vhd(293): inferring latch(es) for signal or variable "zero_en", which holds its previous value in one or more paths through the process File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "zero_en" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "carry_en" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "t2[0]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "t2[1]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "t2[2]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "t1[0]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "t1[1]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "rf_d3_select[0]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "rf_d3_select[1]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "rf_d3_select[2]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "rf_a3_select[0]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "rf_a3_select[1]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "rf_a1_select" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "rf_read" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "rf_write" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "mem_read" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "mem_write" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "mem_data" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "mem_add_select[0]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "mem_add_select[1]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "alu_b_select[0]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "alu_b_select[1]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "alu_b_select[2]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "alu_a_select[0]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "alu_a_select[1]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "alu_op[0]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "alu_op[1]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "pc_select[0]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "pc_select[1]" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Info (10041): Inferred latch for "ir_enable" at RISC.vhd(293) File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/RISC.vhd Line: 293
+Warning (14025): LATCH primitive "data_path:Datapath|instruction_register:ID|inst_type_variable[0]" is permanently disabled File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 64
+Warning (14025): LATCH primitive "data_path:Datapath|instruction_register:ID|inst_type_variable[2]" is permanently disabled File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 64
+Warning (14025): LATCH primitive "data_path:Datapath|instruction_register:ID|inst_type_variable[3]" is permanently disabled File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 64
+Warning (14025): LATCH primitive "data_path:Datapath|instruction_register:ID|inst_type_variable[0]" is permanently disabled File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 64
+Warning (14025): LATCH primitive "data_path:Datapath|instruction_register:ID|inst_type_variable[3]" is permanently disabled File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/instruction_register.vhd Line: 64
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (17049): 100 registers lost all their fanouts during netlist optimizations.
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "reset" File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/Toplevel.vhdl Line: 6
+    Warning (15610): No output dependent on input pin "clock" File: C:/Users/ganat/Downloads/MAIN_PROJECT/MAIN_PROJECT/RISC/Toplevel.vhdl Line: 6
+Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 0 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 67 warnings
+    Info: Peak virtual memory: 4762 megabytes
+    Info: Processing ended: Sat Apr 30 10:53:34 2022
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:27
+
+
